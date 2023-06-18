@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Land Records</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #333;
+      padding: 1rem;
+      display: flex;
+    }
+    .navbar img{
+        height: 8rem;
+        width: 8rem;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar li {
+      margin: 2rem;
+      text-align: center;
+      padding-left: 8rem;
+      padding-top: 2rem;
+      
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+
+    .content {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      text-align: center;
+      margin: 0 1rem;
+    }
+
+    .feature img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .feature h3 {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+    .background-video {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .background-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: 14rem;
+    height: 14rem;
+  }
+  .card {
+          width: 16rem;
+          border: 1px solid #180707;
+          border-radius: 5px;
+          padding: 1rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          background-color: #333;
+        }
+      
+        .card img {
+          width: 100%;
+          border-radius: 5px;
+          margin-bottom: 1rem;
+          height: 12rem;
+        }
+      
+        .card h3 {
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
+          color: #fff;
+        }
+      
+        .card p {
+          font-size: 1rem;
+          color: #fff;
+        }
+      .mainCard{
+        display: flex;
+        padding: 8rem;
+        gap: 2rem;
+      }
+  </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home"><img src="land1.png" alt="Logo"></a>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="record.html">Record</a></li>
+         
+        </ul>
+      </div>
+      <div class="content">
+        <h2 id="about">About</h2>
+        <p>Add your content about the digital land records here.</p>
+        
+        <div class="background-video">
+          <video src="landvideo.mp4" controls width="640" height="360"></video>
+        </div>
+      </div>
+     
+
+      <div class="mainCard">
+      <div class="card">
+        <img src="mumbai.jpg" alt="Card Image">
+        <h3>Mumbai</h3>
+
+        <p>District Superintendent of Land Records, Mumbai Suburban District, 10th Floor, Administrative Building, Near Chetna College,Government Colony, Bandra (East), Mumbai - 400 051.</p>
+      </div>
+      <div class="card">
+        <img src="mumbai.jpg" alt="Card Image">
+        <h3>Delhi</h3>
+        
+        <p>Delhi Online Registration Information System Govt. of N.C.T. Delhi. e-Search. Notice: As per SLA, Certified Copy will be delivered within 30 days !</p>
+      </div>
+      <div class="card">
+        <img src="mumbai.jpg" alt="Card Image">
+        <h3>Noida</h3>
+        
+        <p>The registration fee for properties worth more than 10 lakhs to 20 lakhs would be Rs. 20,000. If a property in Noida and Greater Noida is</p>
+      </div>
+      <div class="card">
+        <img src="mumbai.jpg" alt="Card Image">
+        <h3>Pune</h3>
+        
+        <p> Governemnt Bunglow no.1 , Samata Nagar, Airport Road, Badami Chowk, Near Ishanya Mall, Yerawada | City : PUNE | PIN Code : 411006</p>
+      </div>
+    </div>
+      
+
+  

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Submission</title>
+  <script>
+    function saveData() {
+      var data = {
+        name: document.getElementById("name").value,
+        idproof: document.getElementById("idproof").value,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+        address: document.getElementById("address").value,
+        marketvalue: document.getElementById("marketvalue").value,
+        size: document.getElementById("size").value,
+        pincode: document.getElementById("pincode").value
+      };
+
+      // Retrieve existing blockchain data from localStorage
+      var blockchainData = JSON.parse(localStorage.getItem("blockchainData")) || [];
+
+      // Add new data to blockchain
+      blockchainData.push(data);
+
+      // Update blockchain data in localStorage
+      localStorage.setItem("blockchainData", JSON.stringify(blockchainData));
+
+      // Display blockchain
+      displayBlockchain(blockchainData);
+    }
+
+    function displayBlockchain(blockchainData) {
+      var blockchainDiv = document.getElementById("blockchain");
+      blockchainDiv.innerHTML = "";
+
+      for (var i = 0; i < blockchainData.length; i++) {
+        var blockDiv = document.createElement("div");
+        blockDiv.classList.add("block");
+
+        var blockNumber = document.createElement("p");
+        blockNumber.innerHTML = "<strong>Block Number: </strong>" + (i + 1);
+        blockDiv.appendChild(blockNumber);
+
+        var data = document.createElement("p");
+        data.innerHTML = "<strong>Data: </strong>" + JSON.stringify(blockchainData[i]);
+        blockDiv.appendChild(data);
+
+        if (i > 0) {
+          var previousHash = document.createElement("p");
+          previousHash.innerHTML = "<strong>Previous Hash: </strong>" + calculateHash(blockchainData[i - 1]);
+          blockDiv.appendChild(previousHash);
+        }
+
+        var currentHash = document.createElement("p");
+        currentHash.innerHTML = "<strong>Current Hash: </strong>" + calculateHash(blockchainData[i]);
+        blockDiv.appendChild(currentHash);
+
+        // var isChainVaild = document.createElement("p");
+        // isChainVaild.innerHTML = "<strong>isValid: </strong>" + "yes";
+
+        var separator = document.createElement("hr");
+        blockDiv.appendChild(separator);
+
+        blockchainDiv.appendChild(blockDiv);
+      }
+    }
+
+    function calculateHash(data) {
+      // This is a simple hash calculation for demonstration purposes
+      var jsonString = JSON.stringify(data);
+      var hash = 0;
+
+      if (jsonString.length === 0) {
+        return hash;
+      }
+
+      for (var i = 0; i < jsonString.length; i++) {
+        var charCode = jsonString.charCodeAt(i);
+        hash = (hash << 5) - hash + charCode;
+        hash = hash & hash; // Convert to 32-bit integer
+      }
+
+      return hash;
+    }
+  </script>
+  <style>
+    .block {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="idproof">ID Proof:</label>
+    <input type="text" id="idproof" required><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" required><br>
+
+    <label for="state">State:</label>
+    <input type="text" id="state" required><br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" required><br>
+
+    <label for="marketvalue">Market Value:</label>
+    <input type="text" id="marketvalue" required><br>
+
+    <label for="size">Size:</label>
+    <input type="text" id="size" required><br>
+
+    <label for="pincode">Pincode:</label>
+    <input type="text" id="pincode" required><br>
+
+    <button type="button" onclick="saveData()">Submit</button>
+  </form>
+
+  <div id="blockchain"></div>
+
+  <script>
+    // On page load, display the existing blockchain data (if any)
+    var blockchainData = JSON.parse(localStorage.getItem("blockchainData")) || [];
+    displayBlockchain(blockchainData);
+  </script>
+</body>
+</html>
